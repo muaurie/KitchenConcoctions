@@ -40,13 +40,15 @@ def cook_ingredients(ingredients):
       total_val = sum(ingredient.nutritional_value for ingredient in ingredients)
       return total_val
 ##save get_random_ing() in random_ingredients
-random_ingredients = get_random_ing()
+#random_ingredients = get_random_ing()
 #function for getting total
-total_nutritional_value = cook_ingredients(random_ingredients)
+#total_nutritional_value = cook_ingredients(random_ingredients)
 
-print("Random Ingredients:")
-for ingredient in random_ingredients:
-    print(f"{ingredient.name}: {ingredient.nutritional_value}")
+#print("Random Ingredients:")
+#for ingredient in random_ingredients:
+    #print(f"{ingredient.name}: {ingredient.nutritional_value}")
+#
+#print(f"Total Nutritional Value: {total_nutritional_value}")
 
-print(f"Total Nutritional Value: {total_nutritional_value}")
+
 
