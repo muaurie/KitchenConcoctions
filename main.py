@@ -1,3 +1,4 @@
+import random
 from ingredients import get_random_ing, cook_ingredients
 from animal import Animal
 from dog import Dog
@@ -24,15 +25,28 @@ def indentify(owner, pet_dog):
     pet_dog = Dog()
     return owner, pet_dog
 
-
-def mix_ingredients(owner, pet_dog):
-    ##save get_random_ing() in random_ingredients
+def get_nutritional_value():
+     ##save get_random_ing() in random_ingredients
     random_ingredients = get_random_ing()
     #function for getting total
     total_nutritional_value = cook_ingredients(random_ingredients)
+    return(total_nutritional_value, random_ingredients)
 
-    print("Random Ingredients:")
-    for ingredient in random_ingredients:
+def mix_ingredients(owner, pet_dog, total_nutritional_value, ingredients_list):
+    #calculate energy expent
+    energy_expent = random.randint(1,85)
+    #subtract this from owner's energy
+    owner.energy -= energy_expent
+    #if owner's energy is below 50, eat 1/2 of the treat
+    if owner.energy <= 50:
+        owner.eat("Eat 1/2", total_nutritional_value/2)
+        #pet eat's 1/2 of treat also
+        pet_dog.eat("Eat 1/2", total_nutritional_value/2)
+    else:
+        #otherwise pet will eat entire treat
+        pet_dog.eat("Eat", total_nutritional_value)
+    
+    for ingredient in ingredients_list:
         print(f"{ingredient.name}: {ingredient.nutritional_value}")
 
     print(f"Total Nutritional Value: {total_nutritional_value}")
@@ -44,12 +58,17 @@ def mix_ingredients(owner, pet_dog):
     elif total_nutritional_value >= 100:
         pet_dog.do_an_oopsie()
 
+#def consume_ingredients(owner, pet_dog):
+    #if energy.owner 
+
+
 def game_loop():
     start_game()
     owner, pet_dog = indentify(None, None)
     while True:
         input("Press enter to mix ingredients...")
-        mix_ingredients(owner, pet_dog)
+        total_nutritional_value, ingredients_list = get_nutritional_value()
+        mix_ingredients(owner, pet_dog, total_nutritional_value, ingredients_list)
         if owner.check_win() or owner.check_lose():
             break
     print("Thanks for playing Kitchen Concoctions!")
