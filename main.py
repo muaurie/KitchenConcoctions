@@ -69,7 +69,7 @@ def game_loop():
         input("Press enter to mix ingredients...")
         total_nutritional_value, ingredients_list = get_nutritional_value()
         mix_ingredients(owner, pet_dog, total_nutritional_value, ingredients_list)
-        if owner.check_win() or owner.check_lose():
+        if pet_dog.check_win() or owner.check_lose():
             break
     print("Thanks for playing Kitchen Concoctions!")
 

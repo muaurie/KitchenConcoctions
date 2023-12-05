@@ -6,10 +6,10 @@ class Animal:
     def eat(self, function_code, x):
         if function_code == "Eat":
             self.energy += x
-            print(f"{self.name} eats the kitchen concoction and gains {x} energy!")
+            print(f"{self.name} eats the kitchen concoction and gains {x} energy! {self.name} has {self.energy} energy remaining!")
         elif function_code == "Eat 1/2":
             self.energy += x/2
-            print(f"{self.name} eats half of the kitchen concoction and gains {x/2} energy!")
+            print(f"{self.name} eats half of the kitchen concoction and gains {x/2} energy! {self.name} has {self.energy} energy remaining!")
 
     ##get random expended energy
     def calc_expent_energy(self):

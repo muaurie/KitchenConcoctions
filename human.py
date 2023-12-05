@@ -5,11 +5,6 @@ class Human(Animal):
     def __init__(self):
         super().__init__(input("What is your name? "), 100)
 
-    def check_win(self):
-        if self.energy >= 200:
-            print("Contgratulations! You've reached your target energy level!")
-            return True
-        return False
     def check_lose(self):
         if self.energy < 25:
             print("Oops! Your energy level is too low. You're too hungry to go continue cooking for your pet!")

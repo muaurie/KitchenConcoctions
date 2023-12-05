@@ -12,6 +12,11 @@ class Dog(Animal):
         print(f"{self.dog_name} poops on the carpet!")
     def do_a_puppy_eyes(self):
         print(f"{self.dog_name} makes a sorrowful, and longing expression..")
+    def check_win(self):
+        if self.energy >= 200:
+            print("Contgratulations! You've reached your target energy level!")
+            return True
+        return False
 
 
    
